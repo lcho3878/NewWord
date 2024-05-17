@@ -12,7 +12,9 @@ class MainViewController: UIViewController {
     @IBOutlet var searchBarView: UIView!
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var searchButton: UIButton!
-    @IBOutlet var randomButton: UIButton!
+    @IBOutlet var randomButton1: UIButton!
+    @IBOutlet var randomButton2: UIButton!
+    @IBOutlet var randomButton3: UIButton!
     
     
     @IBOutlet var subView1: UIView!
@@ -26,11 +28,25 @@ class MainViewController: UIViewController {
                                        "완내스": "완전 내 스타일의 줄임말",
                                        "그 잡채": "그 자체를 소리나는 대로 적은 것. 완벽 그 잡채라는 표현으로 사용한다",
                                        "H워얼V": "단어를 뒤집으면 사랑해 가 보인다"
+                                       //단어 좀더 추가해서 보완
+                                       //키보드 return 키
     ]
     
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBarViewSetting()
+        randomButtonSetting(randomButton1)
+        randomButtonSetting(randomButton2)
+        randomButtonSetting(randomButton3)
+        resultViewSettig()
+        shuffle()
+        
+    }
+    
+    private func searchBarViewSetting() {
         searchBarView.layer.borderColor = UIColor.black.cgColor
         searchBarView.layer.borderWidth = 2
         
@@ -40,7 +56,17 @@ class MainViewController: UIViewController {
         searchButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
         searchButton.backgroundColor = .black
         searchButton.tintColor = .white
-        
+    }
+    
+    private func randomButtonSetting(_ button: UIButton) {
+        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 5
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 1.5
+        button.titleLabel?.font = .boldSystemFont(ofSize: 15)
+    }
+    
+    private func resultViewSettig() {
         mainView.layer.borderColor = UIColor.black.cgColor
         mainView.layer.borderWidth = 2
         subView1.layer.borderColor = UIColor.black.cgColor
@@ -51,19 +77,42 @@ class MainViewController: UIViewController {
         
         resultLabel.text = "신조어를 검색해보세요!"
         resultLabel.font = .boldSystemFont(ofSize: 20)
-        
     }
 
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         guard let word = searchTextField.text else { return }
-        guard let result = resultDic[word] else {
-            resultLabel.text = "검색 결과가 없습니다. 다른 단어를 검색해보세요"
-            return
-        }
+        let result = searchWord(word)
         resultLabel.text = result
+        shuffle()
     }
     
     @IBAction func randomButtonTapped(_ sender: UIButton) {
+        guard let word = sender.titleLabel?.text else { return }
+        let result = searchWord(word)
+        searchTextField.text = word
+        resultLabel.text = result
+        shuffle()
+    }
+    
+    
+    
+    private func searchWord(_ word: String) -> String {
+        if let result = resultDic[word] {
+            return result
+        }
+        else {
+            return "검색 결과가 없습니다. 다른 단어를 검색해보세요"
+        }
+    }
+    
+    private func shuffle() {
+        let word1 = resultDic.randomElement()?.key
+        let word2 = resultDic.randomElement()?.key
+        let word3 = resultDic.randomElement()?.key
+        
+        randomButton1.setTitle(word1, for: .normal)
+        randomButton2.setTitle(word2, for: .normal)
+        randomButton3.setTitle(word3, for: .normal)
     }
     
     
