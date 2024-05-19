@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "랜덤검색"; ObjectID = "4jt-LT-whS"; */
+"4jt-LT-whS.normalTitle" = "랜덤검색";
+
+/* Class = "UIButton"; normalTitle = "검색"; ObjectID = "E4w-nZ-J1l"; */
+"E4w-nZ-J1l.normalTitle" = "검색";
+
+/* Class = "UIButton"; normalTitle = "검색"; ObjectID = "Q9t-Lm-TbQ"; */
+"Q9t-Lm-TbQ.normalTitle" = "검색";
+
+/* Class = "UILabel"; text = "\""; ObjectID = "hpV-xY-6A6"; */
+"hpV-xY-6A6.text" = "\"";
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "qpS-Lu-bVK"; */
+"qpS-Lu-bVK.configuration.title" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "qpS-Lu-bVK"; */
+"qpS-Lu-bVK.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "검색 내용 들어갈 부분"; ObjectID = "qr0-N2-DxA"; */
+"qr0-N2-DxA.text" = "검색 내용 들어갈 부분";

@@ -28,8 +28,6 @@ class MainViewController: UIViewController {
                                        "완내스": "완전 내 스타일의 줄임말",
                                        "그 잡채": "그 자체를 소리나는 대로 적은 것. 완벽 그 잡채라는 표현으로 사용한다",
                                        "H워얼V": "단어를 뒤집으면 사랑해 가 보인다"
-                                       //단어 좀더 추가해서 보완
-                                       //키보드 return 키
     ]
     
     
@@ -44,6 +42,10 @@ class MainViewController: UIViewController {
         resultViewSettig()
         shuffle()
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     private func searchBarViewSetting() {
@@ -84,6 +86,7 @@ class MainViewController: UIViewController {
         let result = searchWord(word)
         resultLabel.text = result
         shuffle()
+        searchTextField.endEditing(true)
     }
     
     @IBAction func randomButtonTapped(_ sender: UIButton) {
@@ -94,6 +97,13 @@ class MainViewController: UIViewController {
         shuffle()
     }
     
+    @IBAction func searchTextFieldTapped(_ sender: UITextField) {
+        guard let word = sender.text else { return }
+        let result = searchWord(word)
+        searchTextField.text = word
+        resultLabel.text = result
+        shuffle()
+    }
     
     
     private func searchWord(_ word: String) -> String {
