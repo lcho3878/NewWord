@@ -116,9 +116,13 @@ class MainViewController: UIViewController {
     }
     
     private func shuffle() {
-        let word1 = resultDic.randomElement()?.key
-        let word2 = resultDic.randomElement()?.key
-        let word3 = resultDic.randomElement()?.key
+        var tempDic = resultDic
+        guard let word1 = tempDic.randomElement()?.key else { return }
+//        tempDic.removeValue(forKey: word1)
+        tempDic[word1] = nil
+        guard let word2 = tempDic.randomElement()?.key else { return }
+        tempDic[word2] = nil
+        guard let word3 = tempDic.randomElement()?.key else { return }
         
         randomButton1.setTitle(word1, for: .normal)
         randomButton2.setTitle(word2, for: .normal)
