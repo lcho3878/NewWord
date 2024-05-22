@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
     @IBOutlet var mainView: UIView!
     @IBOutlet var resultLabel: UILabel!
     
-    private var recentWord: [String]?
+    private var recentWord: [String] = []
     
     let resultDic: [String: String] = ["삼귀자": "연애를 시작하기 전 썸 단계!",
                                        "분좋카": "분위기 좋은 카페",
@@ -74,6 +74,9 @@ class MainViewController: UIViewController {
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 1.5
         button.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        if button.currentTitle == " " {
+            button.isHidden = true
+        }
     }
     
     private func resultViewSettig() {
@@ -116,6 +119,7 @@ class MainViewController: UIViewController {
     
     private func searchWord(_ word: String) -> String {
         if let result = resultDic[word] {
+            addRecentWord(word)
             return result
         }
         else {
@@ -126,7 +130,6 @@ class MainViewController: UIViewController {
     private func shuffle() {
         var tempDic = resultDic
         guard let word1 = tempDic.randomElement()?.key else { return }
-//        tempDic.removeValue(forKey: word1)
         tempDic[word1] = nil
         guard let word2 = tempDic.randomElement()?.key else { return }
         tempDic[word2] = nil
@@ -135,6 +138,51 @@ class MainViewController: UIViewController {
         randomButton1.setTitle(word1, for: .normal)
         randomButton2.setTitle(word2, for: .normal)
         randomButton3.setTitle(word3, for: .normal)
+    }
+    
+    private func addRecentWord(_ word: String) {
+        guard !recentWord.contains(word) else {
+            return
+        }
+        if recentWord.count > 2 {
+            recentWord.removeFirst()
+        }
+        recentWord.append(word)
+        changeRecentWordButtonTitles()
+    }
+    
+    private func changeRecentWordButtonTitles() {
+        var title1 = " "
+        var title2 = " "
+        var title3 = " "
+        switch recentWord.count {
+        case 1:
+            title1 = recentWord[0]
+        case 2:
+            title1 = recentWord[0]
+            title2 = recentWord[1]
+        case 3:
+            title1 = recentWord[0]
+            title2 = recentWord[1]
+            title3 = recentWord[2]
+        default: break
+        }
+        recentButton1.setTitle(title1, for: .normal)
+        recentButton2.setTitle(title2, for: .normal)
+        recentButton3.setTitle(title3, for: .normal)
+        checkIsHidden(recentButton1)
+        checkIsHidden(recentButton2)
+        checkIsHidden(recentButton3)
+
+    }
+    
+    private func checkIsHidden(_ button: UIButton) {
+        if button.currentTitle == " " {
+            button.isHidden = true
+        }
+        else {
+            button.isHidden = false
+        }
     }
 }
 

@@ -72,17 +72,26 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vud-oD-6d6">
                                                         <rect key="frame" x="0.0" y="0.0" width="88.333333333333329" height="31.666666666666668"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Button1"/>
+                                                        <state key="normal" title=" "/>
+                                                        <connections>
+                                                            <action selector="randomButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rWK-kT-zC6"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJb-zT-yP7">
                                                         <rect key="frame" x="103.33333333333334" y="0.0" width="88" height="31.666666666666668"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Button2"/>
+                                                        <state key="normal" title=" "/>
+                                                        <connections>
+                                                            <action selector="randomButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cf8-K6-yUu"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzz-4s-pV5">
                                                         <rect key="frame" x="206.33333333333331" y="0.0" width="88.333333333333314" height="31.666666666666668"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Button3"/>
+                                                        <state key="normal" title=" "/>
+                                                        <connections>
+                                                            <action selector="randomButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y1D-Pg-p6Z"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
