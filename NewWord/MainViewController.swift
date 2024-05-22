@@ -8,7 +8,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-//
+    //
     @IBOutlet var searchBarView: UIView!
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var searchButton: UIButton!
@@ -36,10 +36,11 @@ class MainViewController: UIViewController {
     ]
     
     
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
         searchBarViewSetting()
         buttonSetting(randomButton1)
         buttonSetting(randomButton2)
@@ -91,7 +92,7 @@ class MainViewController: UIViewController {
         resultLabel.text = "신조어를 검색해보세요!"
         resultLabel.font = .boldSystemFont(ofSize: 20)
     }
-
+    
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         guard let word = searchTextField.text else { return }
         let result = searchWord(word)
@@ -148,6 +149,7 @@ class MainViewController: UIViewController {
             recentWord.removeFirst()
         }
         recentWord.append(word)
+        saveData()
         changeRecentWordButtonTitles()
     }
     
@@ -173,7 +175,7 @@ class MainViewController: UIViewController {
         checkIsHidden(recentButton1)
         checkIsHidden(recentButton2)
         checkIsHidden(recentButton3)
-
+        
     }
     
     private func checkIsHidden(_ button: UIButton) {
@@ -183,6 +185,17 @@ class MainViewController: UIViewController {
         else {
             button.isHidden = false
         }
+    }
+    
+    private func loadData() {
+        guard let data = UserDefaults.standard.value(forKey: "recentWord") as? [String]  else { return }
+        recentWord = data
+        changeRecentWordButtonTitles()
+    }
+    
+    private func saveData() {
+        UserDefaults.standard.set(recentWord, forKey: "recentWord")
+       
     }
 }
 
