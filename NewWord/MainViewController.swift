@@ -15,6 +15,10 @@ class MainViewController: UIViewController {
     @IBOutlet var randomButton1: UIButton!
     @IBOutlet var randomButton2: UIButton!
     @IBOutlet var randomButton3: UIButton!
+    @IBOutlet var recentButton1: UIButton!
+    @IBOutlet var recentButton2: UIButton!
+    @IBOutlet var recentButton3: UIButton!
+    
     
     
     @IBOutlet var subView1: UIView!
@@ -22,6 +26,7 @@ class MainViewController: UIViewController {
     @IBOutlet var mainView: UIView!
     @IBOutlet var resultLabel: UILabel!
     
+    private var recentWord: [String]?
     
     let resultDic: [String: String] = ["삼귀자": "연애를 시작하기 전 썸 단계!",
                                        "분좋카": "분위기 좋은 카페",
@@ -36,9 +41,12 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBarViewSetting()
-        randomButtonSetting(randomButton1)
-        randomButtonSetting(randomButton2)
-        randomButtonSetting(randomButton3)
+        buttonSetting(randomButton1)
+        buttonSetting(randomButton2)
+        buttonSetting(randomButton3)
+        buttonSetting(recentButton1)
+        buttonSetting(recentButton2)
+        buttonSetting(recentButton3)
         resultViewSettig()
         shuffle()
         
@@ -60,7 +68,7 @@ class MainViewController: UIViewController {
         searchButton.tintColor = .white
     }
     
-    private func randomButtonSetting(_ button: UIButton) {
+    private func buttonSetting(_ button: UIButton) {
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 5
         button.layer.borderColor = UIColor.black.cgColor
@@ -128,7 +136,5 @@ class MainViewController: UIViewController {
         randomButton2.setTitle(word2, for: .normal)
         randomButton3.setTitle(word3, for: .normal)
     }
-    
-    
 }
 

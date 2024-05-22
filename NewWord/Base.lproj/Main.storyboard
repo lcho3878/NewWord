@@ -66,12 +66,38 @@
                                                     <constraint firstAttribute="width" secondItem="TM4-Hn-URM" secondAttribute="height" multiplier="1:1" id="ofc-nD-DnD"/>
                                                 </constraints>
                                             </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cV9-qA-XuQ">
+                                                <rect key="frame" x="32" y="0.0" width="294.66666666666669" height="31.666666666666668"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vud-oD-6d6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="88.333333333333329" height="31.666666666666668"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button1"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJb-zT-yP7">
+                                                        <rect key="frame" x="103.33333333333334" y="0.0" width="88" height="31.666666666666668"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button2"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzz-4s-pV5">
+                                                        <rect key="frame" x="206.33333333333331" y="0.0" width="88.333333333333314" height="31.666666666666668"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button3"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="bzz-4s-pV5" firstAttribute="width" secondItem="5kl-h6-EeC" secondAttribute="width" multiplier="0.25" id="0dq-gF-aoS"/>
+                                            <constraint firstItem="nJb-zT-yP7" firstAttribute="width" secondItem="5kl-h6-EeC" secondAttribute="width" multiplier="0.25" id="4cG-jC-52s"/>
                                             <constraint firstAttribute="bottom" secondItem="TM4-Hn-URM" secondAttribute="bottom" id="5yI-0X-0jP"/>
+                                            <constraint firstItem="cV9-qA-XuQ" firstAttribute="leading" secondItem="TM4-Hn-URM" secondAttribute="trailing" id="OAm-7z-0gn"/>
+                                            <constraint firstItem="vud-oD-6d6" firstAttribute="width" secondItem="5kl-h6-EeC" secondAttribute="width" multiplier="0.25" id="RxX-te-tIm"/>
                                             <constraint firstItem="TM4-Hn-URM" firstAttribute="leading" secondItem="5kl-h6-EeC" secondAttribute="leading" id="ggG-Po-baj"/>
                                             <constraint firstItem="TM4-Hn-URM" firstAttribute="top" secondItem="5kl-h6-EeC" secondAttribute="top" id="jjk-cr-KDk"/>
+                                            <constraint firstItem="cV9-qA-XuQ" firstAttribute="top" secondItem="5kl-h6-EeC" secondAttribute="top" id="thl-zc-afa"/>
+                                            <constraint firstAttribute="bottom" secondItem="cV9-qA-XuQ" secondAttribute="bottom" id="wIA-wh-jq1"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m3C-YU-kJQ">
@@ -164,6 +190,9 @@
                         <outlet property="randomButton1" destination="4jt-LT-whS" id="1k2-7d-Tix"/>
                         <outlet property="randomButton2" destination="E4w-nZ-J1l" id="Qg0-ZR-9ga"/>
                         <outlet property="randomButton3" destination="Q9t-Lm-TbQ" id="5n9-gH-Xfu"/>
+                        <outlet property="recentButton1" destination="vud-oD-6d6" id="xf1-2C-gK2"/>
+                        <outlet property="recentButton2" destination="nJb-zT-yP7" id="NgU-eX-eKz"/>
+                        <outlet property="recentButton3" destination="bzz-4s-pV5" id="S8j-JH-HRJ"/>
                         <outlet property="resultLabel" destination="qr0-N2-DxA" id="N7w-e2-68f"/>
                         <outlet property="searchBarView" destination="brd-w9-suA" id="DUp-wV-WFF"/>
                         <outlet property="searchButton" destination="qpS-Lu-bVK" id="zxD-c0-XYw"/>
