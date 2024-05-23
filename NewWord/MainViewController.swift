@@ -157,18 +157,14 @@ class MainViewController: UIViewController {
         var title1 = " "
         var title2 = " "
         var title3 = " "
-        switch recentWord.count {
-        case 1:
-            title1 = recentWord[0]
-        case 2:
-            title1 = recentWord[0]
-            title2 = recentWord[1]
-        case 3:
-            title1 = recentWord[0]
-            title2 = recentWord[1]
-            title3 = recentWord[2]
-        default: break
-        }
+        
+        guard recentWord.count >= 2 else { return }
+        title3 = recentWord[2]
+        guard recentWord.count >= 1 else { return }
+        title2 = recentWord[1]
+        guard recentWord.count >= 0 else { return }
+        title1 = recentWord[0]
+        
         recentButton1.setTitle(title1, for: .normal)
         recentButton2.setTitle(title2, for: .normal)
         recentButton3.setTitle(title3, for: .normal)
